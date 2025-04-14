@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SG AD - Наружная реклама</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Фиксированный Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            background-color: #2a3d66;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+
+        /* Главная секция */
+        .main-content {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 40px;
+            background: linear-gradient(135deg, #3b4c75, #a4b3c8);
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-content h1 {
+            font-size: 48px;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .main-content p {
+            font-size: 20px;
+            color: #fff;
+        }
+
+        /* Секция Услуги */
+        .services-section {
+            padding: 60px 40px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .services-section h2 {
+            font-size: 40px;
+            color: #2a3d66;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .services-section h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: #ffcc00;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item img {
+            width: 40%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item img:hover {
+            transform: scale(1.1);
+        }
+
+        .service-item div {
+            width: 55%;
+            padding: 30px;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .service-item h3 {
+            font-size: 32px;
+            color: #2a3d66;
+            margin-bottom: 15px;
+        }
+
+        .service-item p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-item button {
+            padding: 10px 20px;
+            background-color: #2a3d66;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .service-item button:hover {
+            background-color: #ffcc00;
+        }
+
+        /* Секция Галерея */
+        .gallery-section {
+            padding: 60px 40px;
+            background-color: #fff;
+        }
+
+        .gallery-section h2 {
+            font-size: 40px;
+            color: #2a3d66;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .gallery-section h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: #ffcc00;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Секция Контакты */
+        .contact-section {
+            padding: 60px 40px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 40px;
+            color: #2a3d66;
+            margin-bottom: 40px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .contact-section h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: #ffcc00;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .contact-info a {
+            display: inline-block;
+            margin: 10px;
+            font-size: 18px;
+            color: #2a3d66;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        /* Модальные окна */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            position: relative; /* Для правильного отображения кнопки */
+        }
+
+        /* Стиль для кнопки закрытия */
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            cursor: pointer;
+            z-index: 1; /* Обеспечивает, чтобы кнопка была сверху */
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Выдвижное меню */
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #2a3d66;
+            color: white;
+            transition: 0.3s ease-in-out;
+            z-index: 999;
+            padding-top: 60px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            border-bottom: 1px solid #457b9d;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: #ffcc00;
+        }
+
+        /* Кнопка для открытия меню */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #2a3d66;
+            color: white;
+            font-size: 22px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background-color: #ffcc00;
+            transform: scale(1.1);
+        }
+
+        /* Футер */
+        footer {
+            background-color: #2a3d66;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Секция FAQ */
+.faq-section {
+    padding: 60px 40px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: 40px;
+    color: #2a3d66;
+    margin-bottom: 40px;
+    font-weight: 600;
+    position: relative;
+}
+
+.faq-section h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: #ffcc00;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.faq-item {
+    margin-bottom: 25px;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-item h3 {
+    font-size: 24px;
+    color: #2a3d66;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;}
+
+        /* Мобильная версия */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            nav {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .menu-btn {
+                font-size: 20px;
+                padding: 12px 20px;
+            }
+
+            .service-item {
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
+
+            .service-item img {
+                width: 100%;
+                height: auto;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .section-number {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    font-size: 120px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.05);
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">SG AD</a>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </header>
+
+    <!-- Выдвижное меню -->
+    <div class="menu" id="menu">
+        <a href="#home">Главная</a>
+        <a href="#services">Услуги</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contact">Контакты</a>
+        <a href="#faq">FAQ</a>
+    </div>
+
+    <!-- Главная секция -->
+    <section id="home">
+        <div class="main-content">
+            <span class="section-number">+7 747 942 74 81</span>
+            <h1>Наружная реклама, которая работает</h1>
+            <p>Мы предлагаем качественные услуги наружной рекламы для вашего бизнеса. Используем новейшие технологии и высококачественные материалы для создания эффективных рекламных конструкций.</p>
+        </div>
+    </section>
+
+    <!-- Услуги секция -->
+<section id="services" class="services-section">
+    <h2>Наши Услуги</h2>
+
+    <div class="service-item">
+        <img src="images/OV.jpg" alt="Объемные буквы">
+        <div>
+            <h3>Объемные Буквы</h3>
+            <p>Создаем объемные буквы и логотипы для магазинов, офисов и выставок. Визуальные элементы из различных материалов (металл, акрил, дерево).</p>
+            <button class="btn" onclick="openModal('modal1')">Подробнее</button>
+        </div>
+    </div>
+
+    <div class="service-item">
+        <img src="images/lightbox.jpg" alt="Лайтбоксы">
+        <div>
+            <h3>Лайтбоксы</h3>
+            <p>Яркие и эффективные рекламные конструкции, которые освещают вашу рекламу и делают её заметной даже в темное время суток.</p>
+            <button class="btn" onclick="openModal('modal2')">Подробнее</button>
+        </div>
+    </div>
+
+    <div class="service-item">
+        <img src="images/viveska.jpg" alt="Вывески">
+        <div>
+            <h3>Вывески</h3>
+            <p>Создание стильных вывесок для любых типов бизнесов. Прочные и эстетичные конструкции, которые подчеркивают ваш бренд.</p>
+            <button class="btn" onclick="openModal('modal3')">Подробнее</button>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Модальные окна -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
+                <h2>Объемные Буквы</h2>
+                <p>Объёмные буквы — это один из самых эффектных и универсальных способов наружной и интерьерной рекламы. Они не только привлекают внимание, но и придают бренду статус, подчёркивают стиль и визуальную идентичность компании. Мы изготавливаем объёмные буквы из различных материалов: металла, акрила, дерева и других современных композитов, обеспечивая высокое качество, прочность и индивидуальный дизайн.</p>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal2')">&times;</span>
+                <h2>Лайтбоксы</h2>
+                <p>Детальная информация о лайтбоксах: преимущества использования лайтбоксов для наружной рекламы. Мы создаем светящиеся рекламные конструкции для вашего бизнеса, которые будут видны даже в темное время суток.</p>
+            </div>
+        </div>
+
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal3')">&times;</span>
+                <h2>Вывески</h2>
+                <p>Детальная информация о вывесках: как мы создаем стильные и функциональные вывески для ваших бизнесов. Мы используем разные материалы и дизайн для уникальности каждой вывески.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Галерея секция -->
+    <section id="gallery" class="gallery-section">
+        <h2>Галерея</h2>
+
+        <div class="gallery-grid">
+            <img src="images/gallery1.jpg" alt="Галерея 1">
+            <img src="images/gallery2.jpg" alt="Галерея 2">
+            <img src="images/gallery3.jpg" alt="Галерея 3">
+            <img src="images/gallery4.jpg" alt="Галерея 4">
+            <img src="images/gallery5.avif" alt="Галерея 5">
+            <img src="images/gallery6.jpg" alt="Галерея 6">
+        </div>
+    </section>
+
+    <!-- Секция Контакты -->
+    <section id="contact" class="contact-section">
+        <h2>Контакты</h2>
+        <div class="contact-info">
+            <a href="tel:+77479427481"><i class="fas fa-phone"></i> +7 (747) 947-74-81</a>
+            <a href="https://wa.me/77479427481"><i class="fab fa-whatsapp"></i> Написать в WhatsApp</a>
+            <a href="https://t.me/username"><i class="fab fa-telegram"></i> Написать в Telegram</a>
+        </div>
+    </section>
+     <!-- Секция FAQ -->
+     <section id="faq" class="faq-section">
+        <h2>Часто задаваемые вопросы</h2>
+
+        <div class="faq-item">
+            <h3>1. Какие услуги вы предоставляете?</h3>
+            <p>Мы специализируемся на создании объемных букв, лайтбоксов, вывесок и других видов наружной рекламы, которые помогут выделить ваш бизнес.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>2. Как долго занимает изготовление рекламной конструкции?</h3>
+            <p>Время изготовления зависит от сложности проекта и используемых материалов. Обычно срок составляет от 3 до 14 рабочих дней.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>3. Могу ли я заказать индивидуальный дизайн?</h3>
+            <p>Да, мы разрабатываем индивидуальные проекты с учетом ваших пожеланий и особенностей бренда.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>4. Какое оборудование используется для производства?</h3>
+            <p>Мы используем современное оборудование для резки, фрезеровки, лазерной обработки и печати, что гарантирует высокое качество наших изделий.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>5. Что входит в стоимость услуг?</h3>
+            <p>Стоимость зависит от выбранной конструкции, материалов и сложности работы. Мы всегда предоставляем точный расчет после консультации.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>6. Осуществляете ли вы монтаж рекламы?</h3>
+            <p>Да, мы предлагаем полный комплекс услуг, включая доставку и монтаж рекламных конструкций в удобное для вас время.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>7. Есть ли у вас гарантия на продукцию?</h3>
+            <p>Мы предоставляем гарантию на все наши работы. Гарантийный срок зависит от типа изделия и условий эксплуатации.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>8. Как я могу связаться с вами для консультации?</h3>
+            <p>Вы можете связаться с нами по телефону, через WhatsApp, Telegram или по электронной почте. Все контакты указаны в разделе "Контакты".</p>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2025 SG AD. Все права защищены.</p>
+        <p>Связь с нами: <a href="mailto:info@sgad.com">sg.ad.company@gmail.com</a></p>
+        <p>Адрес : город Алматы ,улица Бродского 37/2</a></p>
+    </footer>
+
+    <script>
+        // Открытие модального окна
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        // Закрытие модального окна
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Открытие и закрытие меню
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            if (menu.style.right === "-250px") {
+                menu.style.right = "0";
+            } else {
+                menu.style.right = "-250px";
+            }
+        }
+    </script>
+
+</body>
+</html>
