@@ -182,22 +182,32 @@
         }
 
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    scrollbar-width: thin; /* для Firefox */
+    scrollbar-color: #2a3d66 transparent;
+}
 
-        .gallery-grid img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
+.gallery-grid::-webkit-scrollbar {
+    height: 8px;
+}
 
-        .gallery-grid img:hover {
-            transform: scale(1.1);
-        }
+.gallery-grid::-webkit-scrollbar-thumb {
+    background-color: #2a3d66;
+    border-radius: 4px;
+}
 
+.gallery-grid img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+}
         /* Секция Контакты */
         .contact-section {
             padding: 60px 40px;
