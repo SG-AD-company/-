@@ -70,93 +70,100 @@
             color: #fff;
         }
 
-        /* Секция Услуги */
+        /* Стили для секции Услуги */
 .services-section {
     padding: 60px 40px;
-    background-color: #fff;
-    position: relative;
+    background-color: #f4f7fb;
+    text-align: center;
 }
 
 .services-section h2 {
-    font-size: 40px;
+    font-size: 36px;
     color: #2a3d66;
     margin-bottom: 40px;
-    text-align: center;
-    font-weight: 600;
-    position: relative;
+    font-weight: bold;
 }
 
-.services-section h2::after {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 4px;
-    background-color: #ffcc00;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.carousel-container {
-    position: relative;
-    display: flex;
-    overflow: hidden;
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.3s ease;
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    justify-items: center;
 }
 
 .service-item {
-    flex: 0 0 100%;
-    margin-right: 20px;
+    background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    transition: transform 0.3s ease;
 }
 
 .service-item img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.service-item div {
+.service-item img:hover {
+    transform: scale(1.1);
+}
+
+.service-info {
     padding: 20px;
-    background-color: #f9f9f9;
 }
 
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+.service-info h3 {
+    font-size: 22px;
+    color: #2a3d66;
+    margin-bottom: 10px;
+}
+
+.service-info p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.service-info button {
+    font-size: 14px;
+    padding: 10px 20px;
+    background-color: #2a3d66;
     color: white;
-    font-size: 30px;
-    padding: 10px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
+    transition: background-color 0.3s ease;
 }
 
-.carousel-nav.left {
-    left: 10px;
+.service-info button:hover {
+    background-color: #ffcc00;
+    color: #2a3d66;
 }
 
-.carousel-nav.right {
-    right: 10px;
-}
-
-.carousel-nav:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
+/* Адаптивные стили для мобильных устройств */
 @media (max-width: 768px) {
-    .service-item {
-        flex: 0 0 100%;
+    .services-section h2 {
+        font-size: 28px;
+    }
+
+    .service-item img {
+        height: 180px;
+    }
+
+    .service-info h3 {
+        font-size: 20px;
+    }
+
+    .service-info p {
+        font-size: 14px;
+    }
+
+    .service-info button {
+        font-size: 12px;
+        padding: 8px 16px;
     }
 }
 
@@ -631,39 +638,35 @@
     <!-- Секция Услуги -->
 <section id="services" class="services-section">
     <h2>Наши Услуги</h2>
-    <div class="carousel-container">
-        <div class="carousel" id="carousel">
-            <div class="service-item">
-                <img src="OV.jpg" alt="Объемные буквы">
-                <div>
-                    <h3>Объемные Буквы</h3>
-                    <p>Создаем объемные буквы и логотипы для магазинов, офисов и выставок. Визуальные элементы из различных материалов (металл, акрил, дерево).</p>
-                    <button class="btn" onclick="openModal('modal1')">Подробнее</button>
-                </div>
-            </div>
 
-            <div class="service-item">
-                <img src="lightbox.jpg" alt="Лайтбоксы">
-                <div>
-                    <h3>Лайтбоксы</h3>
-                    <p>Яркие и эффективные рекламные конструкции, которые освещают вашу рекламу и делают её заметной даже в темное время суток.</p>
-                    <button class="btn" onclick="openModal('modal2')">Подробнее</button>
-                </div>
-            </div>
-
-            <div class="service-item">
-                <img src="viveska.jpg" alt="Вывески">
-                <div>
-                    <h3>Вывески</h3>
-                    <p>Создание стильных вывесок для любых типов бизнесов. Прочные и эстетичные конструкции, которые подчеркивают ваш бренд.</p>
-                    <button class="btn" onclick="openModal('modal3')">Подробнее</button>
-                </div>
+    <div class="services-container">
+        <!-- Карточки услуг -->
+        <div class="service-item">
+            <img src="OV.jpg" alt="Объемные буквы">
+            <div class="service-info">
+                <h3>Объемные Буквы</h3>
+                <p>Создаем объемные буквы и логотипы для магазинов, офисов и выставок. Визуальные элементы из различных материалов (металл, акрил, дерево).</p>
+                <button class="btn">Подробнее</button>
             </div>
         </div>
 
-        <!-- Навигационные стрелки -->
-        <button class="carousel-nav left" onclick="moveCarousel(-1)">&#10094;</button>
-        <button class="carousel-nav right" onclick="moveCarousel(1)">&#10095;</button>
+        <div class="service-item">
+            <img src="lightbox.jpg" alt="Лайтбоксы">
+            <div class="service-info">
+                <h3>Лайтбоксы</h3>
+                <p>Яркие и эффективные рекламные конструкции, которые освещают вашу рекламу и делают её заметной даже в темное время суток.</p>
+                <button class="btn">Подробнее</button>
+            </div>
+        </div>
+
+        <div class="service-item">
+            <img src="viveska.jpg" alt="Вывески">
+            <div class="service-info">
+                <h3>Вывески</h3>
+                <p>Создание стильных вывесок для любых типов бизнесов. Прочные и эстетичные конструкции, которые подчеркивают ваш бренд.</p>
+                <button class="btn">Подробнее</button>
+            </div>
+        </div>
     </div>
 </section>
 
