@@ -483,12 +483,17 @@
 }
 /* Стили для плавающего меню */
 .floating-contact-menu {
-    position: fixed; /* или другие стили для закрепления меню */
+    position: fixed;
     right: 20px;
     bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center; /* Центрирует элементы по горизонтали */
+    background-color: #ffffff; /* Белый фон */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для фона */
+    border-radius: 10px 0 0 10px; /* Закругление углов */
+    padding: 10px 15px; /* Добавим отступы внутри меню */
+    transition: right 0.3s ease; /* Плавное выдвижение */
 }
 
 .floating-contact-btn {
@@ -498,6 +503,11 @@
     color: #000; /* Цвет кнопки */
     margin-bottom: 10px; /* Отступ между кнопкой и контактными иконками */
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.floating-contact-btn:hover {
+    color: #007bff; /* Цвет кнопки при наведении */
 }
 
 .contact-options {
@@ -511,10 +521,24 @@
     color: #000; /* Цвет иконок */
     margin: 5px 0; /* Отступы между иконками */
     text-decoration: none; /* Убираем подчеркивание с ссылок */
+    transition: color 0.3s ease;
 }
 
 .contact-options a:hover {
-    color: #007bff; /* Цвет при наведении */
+    color: #007bff; /* Цвет иконок при наведении */
+}
+
+/* Для того, чтобы меню плавно выезжало */
+.floating-contact-menu.active {
+    right: 0; /* Меню будет отображаться при добавлении класса 'active' */
+}
+
+/* Для мобильных устройств */
+@media (max-width: 600px) {
+    .floating-contact-menu {
+        right: -50px; /* Ближе к экрану на мобильных устройствах */
+        bottom: 10px;
+    }
 }
     </style>
 </head>
