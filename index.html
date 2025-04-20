@@ -496,9 +496,8 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    display: flex; /* добавлено */
-    align-items: center; /* по вертикали */
-    justify-content: center; /* по горизонтали */
+    text-align: center;
+    line-height: 60px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     border: none;
@@ -539,12 +538,6 @@
 .contact-options a i {
     margin-right: 10px;
 }
-.floating-contact-btn svg,
-.contact-options svg {
-    display: block;
-    margin: 0 auto;
-}
-
     </style>
 </head>
 <body>
@@ -707,63 +700,22 @@
         <p>Связь с нами: <a href="mailto:info@sgad.com">sg.ad.company@gmail.com</a></p>
         <p>Адрес : город Алматы ,улица Бродского 37/2</a></p>
     </footer>
-<!-- Плавающее меню связи -->
-.floating-contact-menu {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1001;
-}
-
-.floating-contact-btn {
-    background-color: #2a3d66;
-    color: white;
-    font-size: 28px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 60px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    border: none;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.floating-contact-btn:hover {
-    transform: scale(1.1);
-    background-color: #ffcc00;
-}
-
-.contact-options {
-    display: none;
-    position: absolute;
-    bottom: 80px;  /* Позиция меню выше кнопки */
-    right: 0;
-    background-color: #2a3d66;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.contact-options a {
-    display: block;
-    padding: 10px;
-    color: white;
-    font-size: 22px;
-    text-decoration: none;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-}
-
-.contact-options a:hover {
-    background-color: #ffcc00;
-}
-
-.contact-options a i {
-    margin-right: 10px;
-}
+<div class="floating-contact-menu">
+    <button class="floating-contact-btn" onclick="toggleContactMenu()">
+        <i class="fas fa-headset"></i>
+    </button>
+    <div class="contact-options">
+        <a href="https://wa.me/77479427481" target="_blank" title="Написать в WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://t.me/username" target="_blank" title="Написать в Telegram">
+            <i class="fab fa-telegram"></i>
+        </a>
+        <a href="tel:+77479427481" title="Позвонить">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+</div>
 
     <script>
         // Открытие модального окна
