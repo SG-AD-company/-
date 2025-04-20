@@ -154,6 +154,48 @@
         .service-item button:hover {
             background-color: #ffcc00;
         }
+@media (max-width: 768px) {
+    .service-item {
+        flex-direction: column;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .service-item img {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .service-item div {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .service-item h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .service-item p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+
+    .service-item button {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .services-section h2 {
+        font-size: 28px;
+    }
+}
 
         /* Секция Галерея */
         .gallery-section {
