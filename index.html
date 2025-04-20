@@ -484,61 +484,59 @@
 /* Стили для плавающего меню */
 .floating-contact-menu {
     position: fixed;
-    right: 20px;
     bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрирует элементы по горизонтали */
-    background-color: #f1f1f1; /* Белый фон */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для фона */
-    border-radius: 10px 0 0 10px; /* Закругление углов */
-    padding: 10px 15px; /* Добавим отступы внутри меню */
-    transition: right 0.3s ease; /* Плавное выдвижение */
+    right: 20px;
+    z-index: 1001;
 }
 
 .floating-contact-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #000; /* Цвет кнопки */
-    margin-bottom: 10px; /* Отступ между кнопкой и контактными иконками */
+    background-color: #2a3d66;
+    color: white;
+    font-size: 28px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    transition: color 0.3s ease;
+    border: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .floating-contact-btn:hover {
-    color: #007bff; /* Цвет кнопки при наведении */
+    transform: scale(1.1);
+    background-color: #ffcc00;
 }
 
 .contact-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрирует иконки по горизонтали */
+    display: none;
+    position: absolute;
+    bottom: 80px;  /* Позиция меню выше кнопки */
+    right: 0;
+    background-color: #2a3d66;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .contact-options a {
-    font-size: 24px; /* Размер иконок */
-    color: #000; /* Цвет иконок */
-    margin: 5px 0; /* Отступы между иконками */
-    text-decoration: none; /* Убираем подчеркивание с ссылок */
-    transition: color 0.3s ease;
+    display: block;
+    padding: 10px;
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
 }
 
 .contact-options a:hover {
-    color: #007bff; /* Цвет иконок при наведении */
+    background-color: #ffcc00;
 }
 
-/* Для того, чтобы меню плавно выезжало */
-.floating-contact-menu.active {
-    right: 0; /* Меню будет отображаться при добавлении класса 'active' */
-}
-
-/* Для мобильных устройств */
-@media (max-width: 600px) {
-    .floating-contact-menu {
-        right: -50px; /* Ближе к экрану на мобильных устройствах */
-        bottom: 10px;
-    }
+.contact-options a i {
+    margin-right: 10px;
 }
     </style>
 </head>
